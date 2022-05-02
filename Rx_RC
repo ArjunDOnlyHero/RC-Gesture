@@ -21,12 +21,13 @@ void setup()
 
 void loop()
 {
-    uint8_t buf[12];
+    uint8_t buf[1];
     uint8_t buflen = sizeof(buf); 
  
     if (driver.recv(buf, &buflen))
     {
-      if(buf[12]=='f')
+      d_out = String((char*)buf);
+      if(d_out=='f')
       {  
        digitalWrite(m1,HIGH);
        digitalWrite(m2,LOW);
@@ -34,7 +35,7 @@ void loop()
        digitalWrite(m4,LOW);
        Serial.println("Forward");
       }  
-      else if(buf[12]=='b')
+      else if(d_out=='b')
       {
        digitalWrite(m1,LOW);
        digitalWrite(m2,HIGH);
@@ -42,7 +43,7 @@ void loop()
        digitalWrite(m4,HIGH);
        Serial.println("Backward");
       }
-      else if(buf[12]=='r')
+      else if(d_out=='r')
       {
        digitalWrite(m1,HIGH);
        digitalWrite(m2,LOW);
@@ -50,7 +51,7 @@ void loop()
        digitalWrite(m4,LOW);
        Serial.println("Left");
       }
-      else if(buf[12]=='l')
+      else if(d_out=='l')
       {
        digitalWrite(m1,LOW);
        digitalWrite(m2,LOW);
@@ -58,7 +59,7 @@ void loop()
        digitalWrite(m4,LOW);
        Serial.println("Right");
       }
-      else if(buf[12]=='s')            
+      else if(d_out=='s')            
       {
        digitalWrite(m1,LOW);
        digitalWrite(m2,LOW);
