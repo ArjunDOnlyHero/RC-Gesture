@@ -26,8 +26,10 @@ void loop()
  
     if (driver.recv(buf, &buflen))
     {
-      d_out = String((char*)buf);
-      if(d_out=='f')
+      i= String((char*)buf);
+      Serial.println(i);
+
+      if(i=="f")
       {  
        digitalWrite(m1,HIGH);
        digitalWrite(m2,LOW);
@@ -35,7 +37,7 @@ void loop()
        digitalWrite(m4,LOW);
        Serial.println("Forward");
       }  
-      else if(d_out=='b')
+      else if(i=="b")
       {
        digitalWrite(m1,LOW);
        digitalWrite(m2,HIGH);
@@ -43,7 +45,7 @@ void loop()
        digitalWrite(m4,HIGH);
        Serial.println("Backward");
       }
-      else if(d_out=='r')
+      else if(i=="r")
       {
        digitalWrite(m1,HIGH);
        digitalWrite(m2,LOW);
@@ -51,7 +53,7 @@ void loop()
        digitalWrite(m4,LOW);
        Serial.println("Left");
       }
-      else if(d_out=='l')
+      else if(i=="l")
       {
        digitalWrite(m1,LOW);
        digitalWrite(m2,LOW);
@@ -59,7 +61,7 @@ void loop()
        digitalWrite(m4,LOW);
        Serial.println("Right");
       }
-      else if(d_out=='s')            
+      else if(i=="s")            
       {
        digitalWrite(m1,LOW);
        digitalWrite(m2,LOW);
